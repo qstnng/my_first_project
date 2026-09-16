@@ -1,0 +1,259 @@
+/* ============ 2.1 Базовые селекторы ============ */
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.7;
+    color: #2b2b2b;
+    background-color: #faf7f2;
+    padding: 20px;
+}
+
+h1 {
+    color: #1e3a5f;
+    letter-spacing: 1px;
+}
+
+.main-header {
+    background-color: #e8eef5;
+    padding: 30px 25px;
+    border-bottom: 3px double #1e3a5f;
+    border-radius: 6px 6px 0 0;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #5a6b7b;
+    font-size: 1.05em;
+}
+
+#site-title {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 2.2em;
+    text-transform: uppercase;
+}
+
+/* ============ 2.2 Комбинированные селекторы ============ */
+
+.content > article {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px 0;
+    border-left: 5px solid #1e3a5f;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.post p {
+    margin-bottom: 12px;
+    text-indent: 1.5em;
+}
+
+h2 + p {
+    font-weight: bold;
+    font-size: 1.15em;
+    color: #1e3a5f;
+}
+
+.card {
+    border: 2px dashed #b8c4d0;
+    padding: 18px;
+    border-radius: 10px;
+    background-color: #fdfcf8;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* ============ 3.1 Каскад ============ */
+
+p {
+    color: #2b2b2b;
+    font-size: 16px;
+}
+
+.post p {
+    color: #2f5d3a;
+}
+
+.featured-post p {
+    color: #7a2e2e;
+}
+
+.featured-post .intro {
+    color: #6a3d9a;
+    font-size: 1.15em;
+    font-weight: 600;
+}
+
+/* ============ 3.2 Специфичность ============ */
+
+.important {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+li.important {
+    color: #8e2f22;
+    text-decoration: underline wavy;
+}
+
+ul li {
+    color: #34495e;
+}
+
+.important {
+    color: #e67e22 !important;
+}
+
+/* ============ 4.1 Наследование ============ */
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.7;
+    color: #2b2b2b;
+}
+
+.card {
+    border: 2px solid #3498db;
+    padding: inherit;
+}
+
+.examples {
+    font-size: 15px;
+    font-weight: normal;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.examples .card {
+    flex: 1 1 280px;
+}
+
+/* ============ 4.2 Псевдоклассы и псевдоэлементы ============ */
+
+li:hover {
+    background-color: #ffeaa7;
+    cursor: pointer;
+    transform: translateX(4px);
+    transition: all 0.2s ease;
+}
+
+li:nth-child(odd) {
+    background-color: #f4f1ea;
+}
+
+.main-header:hover {
+    background-color: #dbe6f0;
+    transition: background-color 0.4s ease;
+}
+
+p:first-line {
+    font-weight: bold;
+    color: #1e3a5f;
+}
+
+.post h2::after {
+    content: " ✦";
+    color: #d4af37;
+    font-size: 0.9em;
+}
+
+.card::before {
+    content: "▸ ";
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(30, 58, 95, 0.15);
+}
+
+/* ============ 6. Дополнительно ============ */
+
+/* CSS-переменные */
+:root {
+    --main-color: #1e3a5f;
+    --accent-color: #d4af37;
+    --bg-soft: #e8eef5;
+    --radius: 10px;
+}
+
+#site-title {
+    color: var(--main-color);
+    text-shadow: 1px 1px 0 var(--accent-color);
+}
+
+.main-footer {
+    background-color: var(--bg-soft);
+    color: var(--main-color);
+    padding: 20px;
+    text-align: center;
+    border-radius: 0 0 var(--radius) var(--radius);
+    margin-top: 30px;
+    border-top: 3px double var(--main-color);
+}
+
+/* currentColor */
+.main-footer {
+    border-top-color: currentColor;
+}
+
+/* Анимация */
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: slideFadeIn 0.7s ease-out both;
+}
+
+.card:nth-of-type(2) {
+    animation-delay: 0.15s;
+}
+
+/* Медиа-запросы */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #site-title {
+        font-size: 1.6em;
+    }
+
+    .main-header {
+        padding: 20px 15px;
+    }
+
+    .examples {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .content > article {
+        padding: 14px;
+        margin: 10px 0;
+    }
+
+    h2 + p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .subtitle {
+        font-size: 0.95em;
+    }
+}
