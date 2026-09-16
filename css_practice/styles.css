@@ -1,209 +1,280 @@
-/* ============ 2.1 Базовые селекторы ============ */
+/* =============================
+   CSS-переменные
+   ============================= */
+:root {
+    --bg-page: #eef3f8;
+    --bg-card: #ffffff;
+    --bg-soft: #dce7f2;
 
+    --text-main: #2a3b4d;
+    --text-soft: #5a7a99;
+    --text-heading: #1b3a5c;
+
+    --accent: #2c5f8a;
+    --accent-2: #5a8bb8;
+    --accent-3: #7ba7cc;
+    --accent-4: #3a6f9c;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+
+    --shadow-sm: 0 2px 6px rgba(44, 95, 138, 0.08);
+    --shadow-md: 0 6px 18px rgba(44, 95, 138, 0.12);
+    --shadow-lg: 0 12px 28px rgba(44, 95, 138, 0.18);
+
+    --transition: 0.3s ease;
+}
+
+/* =============================
+   Базовые селекторы
+   ============================= */
 body {
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.7;
-    color: #2b2b2b;
-    background-color: #faf7f2;
-    padding: 20px;
+    color: var(--text-main);
+    background: linear-gradient(180deg, var(--bg-page) 0%, #dbe7f3 100%);
+    padding: 40px 40px;
+    min-height: 100vh;
 }
 
 h1 {
-    color: #1e3a5f;
+    color: var(--text-heading);
     letter-spacing: 1px;
+    line-height: 1.3;
 }
 
+h2,
+h3 {
+    color: var(--text-heading);
+}
+
+h2 {
+    font-size: 1.6em;
+    border-bottom: 2px solid var(--accent-3);
+    padding-bottom: 10px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    display: inline-block;
+    line-height: 1.4;
+}
+
+h3 {
+    font-size: 1.25em;
+    border-bottom: 1px solid var(--bg-soft);
+    padding: 0 4px 12px 8px;
+    margin: 6px 0 16px 0;
+    line-height: 1.4;
+}
+
+/* Шапка */
 .main-header {
-    background-color: #e8eef5;
-    padding: 30px 25px;
-    border-bottom: 3px double #1e3a5f;
-    border-radius: 6px 6px 0 0;
+    background: linear-gradient(135deg, #dce7f2 0%, #cfdff0 100%);
+    padding: 50px 40px 40px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-bottom: 4px double var(--accent);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: background-color var(--transition);
 }
 
 .subtitle {
     font-style: italic;
-    color: #5a6b7b;
+    color: var(--text-soft);
     font-size: 1.05em;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    line-height: 1.6;
 }
 
 #site-title {
     text-align: center;
-    margin-bottom: 12px;
-    font-size: 2.2em;
+    margin-top: 8px;
+    margin-bottom: 18px;
+    font-size: 2.4em;
     text-transform: uppercase;
+    color: var(--accent);
+    letter-spacing: 2px;
+    line-height: 1.3;
 }
 
-/* ============ 2.2 Комбинированные селекторы ============ */
-
+/* =============================
+   Комбинированные селекторы
+   ============================= */
 .content > article {
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 15px 0;
-    border-left: 5px solid #1e3a5f;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    background-color: var(--bg-card);
+    padding: 36px 40px 32px;
+    margin: 24px 0;
+    border-left: 6px solid var(--accent-3);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.content > article::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -6px;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--accent-3), var(--accent-2));
 }
 
 .post p {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     text-indent: 1.5em;
+    color: var(--text-main);
+    line-height: 1.7;
 }
 
 h2 + p {
     font-weight: bold;
-    font-size: 1.15em;
-    color: #1e3a5f;
+    font-size: 1.12em;
+    color: var(--accent);
+    margin-bottom: 18px;
 }
 
+/* =============================
+   Карточки и списки
+   ============================= */
 .card {
-    border: 2px dashed #b8c4d0;
-    padding: 18px;
-    border-radius: 10px;
-    background-color: #fdfcf8;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px dashed var(--accent-3);
+    padding: 26px 28px 18px 32px;
+    border-radius: var(--radius-md);
+    background-color: #f7fafd;
+    transition: transform var(--transition), box-shadow var(--transition),
+                border-color var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
-/* ============ 3.1 Каскад ============ */
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding-left: 4px;
+}
 
+ul li {
+    color: var(--text-main);
+    font-size: 1.02em;
+    padding: 10px 8px 10px 12px;
+    border-bottom: 1px solid #e3ecf5;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition), color var(--transition);
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+/* =============================
+   Каскад
+   ============================= */
 p {
-    color: #2b2b2b;
+    color: var(--text-main);
     font-size: 16px;
 }
 
-.post p {
-    color: #2f5d3a;
-}
-
-.featured-post p {
-    color: #7a2e2e;
-}
-
 .featured-post .intro {
-    color: #6a3d9a;
+    color: var(--accent);
     font-size: 1.15em;
     font-weight: 600;
+    margin-bottom: 18px;
 }
 
-/* ============ 3.2 Специфичность ============ */
-
+/* =============================
+   Специфичность
+   ============================= */
 .important {
-    color: #c0392b;
+    color: var(--accent);
     font-weight: bold;
 }
 
 li.important {
-    color: #8e2f22;
-    text-decoration: underline wavy;
+    color: var(--accent-4);
+    font-weight: 600;
 }
 
-ul li {
-    color: #34495e;
+ul li.important {
+    color: var(--accent-2) !important;
 }
 
-.important {
-    color: #e67e22 !important;
-}
-
-/* ============ 4.1 Наследование ============ */
-
-body {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    line-height: 1.7;
-    color: #2b2b2b;
-}
-
+/* =============================
+   Наследование
+   ============================= */
 .card {
-    border: 2px solid #3498db;
+    border: 2px solid var(--accent-3);
     padding: inherit;
 }
 
 .examples {
     font-size: 15px;
     font-weight: normal;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 28px;
+    align-items: stretch;
 }
 
-.examples .card {
-    flex: 1 1 280px;
-}
-
-/* ============ 4.2 Псевдоклассы и псевдоэлементы ============ */
-
-li:hover {
-    background-color: #ffeaa7;
+/* =============================
+   Псевдоклассы и псевдоэлементы
+   ============================= */
+ul li:hover {
+    background-color: var(--bg-soft);
     cursor: pointer;
-    transform: translateX(4px);
-    transition: all 0.2s ease;
+    color: var(--accent);
 }
 
 li:nth-child(odd) {
-    background-color: #f4f1ea;
+    background-color: #f4f8fc;
 }
 
 .main-header:hover {
-    background-color: #dbe6f0;
-    transition: background-color 0.4s ease;
+    background-color: #cfdff0;
 }
 
 p:first-line {
     font-weight: bold;
-    color: #1e3a5f;
+    color: var(--accent);
 }
 
 .post h2::after {
     content: " ✦";
-    color: #d4af37;
-    font-size: 0.9em;
-}
-
-.card::before {
-    content: "▸ ";
-    color: #27ae60;
-    font-weight: bold;
+    color: var(--accent-3);
+    font-size: 0.85em;
 }
 
 .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(30, 58, 95, 0.15);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
 }
 
-/* ============ 6. Дополнительно ============ */
-
-/* CSS-переменные */
-:root {
-    --main-color: #1e3a5f;
-    --accent-color: #d4af37;
-    --bg-soft: #e8eef5;
-    --radius: 10px;
-}
-
-#site-title {
-    color: var(--main-color);
-    text-shadow: 1px 1px 0 var(--accent-color);
-}
-
+/* =============================
+   Подвал
+   ============================= */
 .main-footer {
     background-color: var(--bg-soft);
-    color: var(--main-color);
-    padding: 20px;
+    color: var(--accent);
+    padding: 28px 24px;
     text-align: center;
-    border-radius: 0 0 var(--radius) var(--radius);
-    margin-top: 30px;
-    border-top: 3px double var(--main-color);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    margin-top: 40px;
+    border-top: 3px double currentColor;
+    font-size: 0.95em;
 }
 
-/* currentColor */
-.main-footer {
-    border-top-color: currentColor;
-}
-
-/* Анимация */
+/* =============================
+   Анимация
+   ============================= */
 @keyframes slideFadeIn {
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(14px);
     }
     to {
         opacity: 1;
@@ -212,48 +283,81 @@ p:first-line {
 }
 
 .card {
-    animation: slideFadeIn 0.7s ease-out both;
+    animation: slideFadeIn 0.6s ease-out both;
 }
 
 .card:nth-of-type(2) {
-    animation-delay: 0.15s;
+    animation-delay: 0.12s;
 }
 
-/* Медиа-запросы */
+.card:nth-of-type(3) {
+    animation-delay: 0.24s;
+}
+
+/* =============================
+   Медиа-запросы
+   ============================= */
 @media (max-width: 768px) {
     body {
-        padding: 10px;
+        padding: 20px 16px;
     }
 
     #site-title {
-        font-size: 1.6em;
+        font-size: 1.7em;
+        letter-spacing: 1px;
     }
 
     .main-header {
-        padding: 20px 15px;
-    }
-
-    .examples {
-        flex-direction: column;
-        gap: 12px;
+        padding: 34px 22px 28px;
     }
 
     .content > article {
-        padding: 14px;
-        margin: 10px 0;
+        padding: 26px 24px 22px;
+        margin: 16px 0;
     }
 
-    h2 + p {
-        font-size: 1em;
+    h2 {
+        font-size: 1.35em;
+    }
+
+    .examples {
+        gap: 18px;
+    }
+
+    .card {
+        padding: 22px 22px 14px 24px;
     }
 }
 
 @media (max-width: 480px) {
     body {
         font-size: 14px;
+        padding: 12px 10px;
+    }
+
+    #site-title {
+        font-size: 1.4em;
     }
 
     .subtitle {
         font-size: 0.95em;
+    }
+
+    .content > article {
+        padding: 20px 18px 18px;
+    }
+
+    .main-footer {
+        padding: 18px;
+        font-size: 0.9em;
+    }
+
+    ul li {
+        font-size: 0.98em;
+        padding: 9px 6px 9px 10px;
+    }
+
+    .card {
+        padding: 20px 18px 12px 20px;
     }
 }
