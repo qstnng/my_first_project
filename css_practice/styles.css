@@ -1,71 +1,143 @@
-/* ============ 2.1 Базовые селекторы ============ */
+/* =============================
+   CSS-переменные
+   ============================= */
+:root {
+    --bg-page: #f5f1ea;
+    --bg-card: #ffffff;
+    --bg-soft: #e6ecf5;
+    --bg-accent: #c9a86a;
 
+    --text-main: #2b2b2b;
+    --text-soft: #5a6b7b;
+    --text-heading: #1e3a5f;
+
+    --accent: #1e3a5f;
+    --accent-2: #c9a86a;
+    --accent-3: #2f7a5b;
+    --accent-4: #8e2f22;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+
+    --shadow-sm: 0 2px 6px rgba(30, 58, 95, 0.08);
+    --shadow-md: 0 6px 18px rgba(30, 58, 95, 0.12);
+    --shadow-lg: 0 12px 28px rgba(30, 58, 95, 0.16);
+
+    --transition: 0.3s ease;
+}
+
+/* =============================
+   Базовые селекторы
+   ============================= */
 body {
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.7;
-    color: #2b2b2b;
-    background-color: #faf7f2;
-    padding: 20px;
+    color: var(--text-main);
+    background: linear-gradient(180deg, var(--bg-page) 0%, #ede7dc 100%);
+    padding: 30px 20px;
+    min-height: 100vh;
 }
 
 h1 {
-    color: #1e3a5f;
+    color: var(--text-heading);
     letter-spacing: 1px;
 }
 
+h2,
+h3 {
+    color: var(--text-heading);
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.6em;
+    border-bottom: 2px solid var(--accent-2);
+    padding-bottom: 6px;
+    display: inline-block;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+/* Шапка */
 .main-header {
-    background-color: #e8eef5;
-    padding: 30px 25px;
-    border-bottom: 3px double #1e3a5f;
-    border-radius: 6px 6px 0 0;
+    background: linear-gradient(135deg, var(--bg-soft) 0%, #dbe5f0 100%);
+    padding: 40px 30px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-bottom: 4px double var(--accent);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: background-color var(--transition);
 }
 
 .subtitle {
     font-style: italic;
-    color: #5a6b7b;
+    color: var(--text-soft);
     font-size: 1.05em;
+    margin-top: 8px;
 }
 
 #site-title {
     text-align: center;
     margin-bottom: 12px;
-    font-size: 2.2em;
+    font-size: 2.4em;
     text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: 2px 2px 0 var(--accent-2);
+    letter-spacing: 2px;
 }
 
-/* ============ 2.2 Комбинированные селекторы ============ */
-
+/* =============================
+   Комбинированные селекторы
+   ============================= */
 .content > article {
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 15px 0;
-    border-left: 5px solid #1e3a5f;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    background-color: var(--bg-card);
+    padding: 26px 30px;
+    margin: 20px 0;
+    border-left: 6px solid var(--accent-3);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.content > article::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -6px;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--accent-3), var(--accent-2));
 }
 
 .post p {
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     text-indent: 1.5em;
+    color: #2f5d3a;
 }
 
 h2 + p {
     font-weight: bold;
-    font-size: 1.15em;
-    color: #1e3a5f;
+    font-size: 1.12em;
+    color: var(--accent);
 }
 
 .card {
     border: 2px dashed #b8c4d0;
-    padding: 18px;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: var(--radius-md);
     background-color: #fdfcf8;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform var(--transition), box-shadow var(--transition),
+                border-color var(--transition);
 }
 
-/* ============ 3.1 Каскад ============ */
-
+/* =============================
+   Каскад (демонстрация)
+   ============================= */
 p {
-    color: #2b2b2b;
+    color: var(--text-main);
     font-size: 16px;
 }
 
@@ -74,7 +146,7 @@ p {
 }
 
 .featured-post p {
-    color: #7a2e2e;
+    color: var(--accent-4);
 }
 
 .featured-post .intro {
@@ -83,32 +155,37 @@ p {
     font-weight: 600;
 }
 
-/* ============ 3.2 Специфичность ============ */
-
+/* =============================
+   Специфичность (демонстрация)
+   ============================= */
 .important {
     color: #c0392b;
     font-weight: bold;
 }
 
 li.important {
-    color: #8e2f22;
+    color: var(--accent-4);
     text-decoration: underline wavy;
 }
 
 ul li {
     color: #34495e;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition), transform var(--transition);
 }
 
 .important {
     color: #e67e22 !important;
 }
 
-/* ============ 4.1 Наследование ============ */
-
+/* =============================
+   Наследование
+   ============================= */
 body {
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.7;
-    color: #2b2b2b;
+    color: var(--text-main);
 }
 
 .card {
@@ -119,23 +196,19 @@ body {
 .examples {
     font-size: 15px;
     font-weight: normal;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
-.examples .card {
-    flex: 1 1 280px;
-}
-
-/* ============ 4.2 Псевдоклассы и псевдоэлементы ============ */
-
+/* =============================
+   Псевдоклассы и псевдоэлементы
+   ============================= */
 li:hover {
     background-color: #ffeaa7;
     cursor: pointer;
-    transform: translateX(4px);
-    transition: all 0.2s ease;
+    transform: translateX(6px);
 }
 
 li:nth-child(odd) {
@@ -144,66 +217,52 @@ li:nth-child(odd) {
 
 .main-header:hover {
     background-color: #dbe6f0;
-    transition: background-color 0.4s ease;
 }
 
 p:first-line {
     font-weight: bold;
-    color: #1e3a5f;
+    color: var(--accent);
 }
 
 .post h2::after {
     content: " ✦";
-    color: #d4af37;
+    color: var(--accent-2);
     font-size: 0.9em;
 }
 
 .card::before {
     content: "▸ ";
-    color: #27ae60;
+    color: var(--accent-3);
     font-weight: bold;
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(30, 58, 95, 0.15);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-2);
 }
 
-/* ============ 6. Дополнительно ============ */
-
-/* CSS-переменные */
-:root {
-    --main-color: #1e3a5f;
-    --accent-color: #d4af37;
-    --bg-soft: #e8eef5;
-    --radius: 10px;
-}
-
-#site-title {
-    color: var(--main-color);
-    text-shadow: 1px 1px 0 var(--accent-color);
-}
-
+/* =============================
+   Подвал
+   ============================= */
 .main-footer {
     background-color: var(--bg-soft);
-    color: var(--main-color);
-    padding: 20px;
+    color: var(--accent);
+    padding: 24px;
     text-align: center;
-    border-radius: 0 0 var(--radius) var(--radius);
-    margin-top: 30px;
-    border-top: 3px double var(--main-color);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    margin-top: 35px;
+    border-top: 3px double currentColor;
+    font-size: 0.95em;
 }
 
-/* currentColor */
-.main-footer {
-    border-top-color: currentColor;
-}
-
-/* Анимация */
+/* =============================
+   Анимация появления
+   ============================= */
 @keyframes slideFadeIn {
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(18px);
     }
     to {
         opacity: 1;
@@ -219,41 +278,66 @@ p:first-line {
     animation-delay: 0.15s;
 }
 
-/* Медиа-запросы */
+.card:nth-of-type(3) {
+    animation-delay: 0.3s;
+}
+
+/* =============================
+   Медиа-запросы
+   ============================= */
 @media (max-width: 768px) {
     body {
-        padding: 10px;
+        padding: 15px 12px;
     }
 
     #site-title {
-        font-size: 1.6em;
+        font-size: 1.7em;
+        letter-spacing: 1px;
     }
 
     .main-header {
-        padding: 20px 15px;
-    }
-
-    .examples {
-        flex-direction: column;
-        gap: 12px;
+        padding: 24px 18px;
     }
 
     .content > article {
-        padding: 14px;
-        margin: 10px 0;
+        padding: 18px 20px;
+        margin: 14px 0;
     }
 
-    h2 + p {
-        font-size: 1em;
+    h2 {
+        font-size: 1.35em;
+    }
+
+    .examples {
+        gap: 14px;
+    }
+
+    .card {
+        padding: 16px;
     }
 }
 
 @media (max-width: 480px) {
     body {
         font-size: 14px;
+        padding: 10px 8px;
+    }
+
+    #site-title {
+        font-size: 1.4em;
+        text-shadow: 1px 1px 0 var(--accent-2);
     }
 
     .subtitle {
         font-size: 0.95em;
+    }
+
+    .content > article {
+        padding: 14px 16px;
+    }
+
+    .main-footer {
+        padding: 16px;
+        font-size: 0.9em;
     }
 }
