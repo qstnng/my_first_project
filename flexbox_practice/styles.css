@@ -1,0 +1,355 @@
+/* =============================
+   Переменные
+   ============================= */
+:root {
+    --accent: #2c5f8a;
+    --accent-2: #5a8bb8;
+    --accent-3: #7ba7cc;
+    --accent-soft: #dce7f2;
+
+    --bg-page: #eef3f8;
+    --bg-card: #f7fafd;
+    --bg-white: #ffffff;
+
+    --text-main: #2a3b4d;
+    --text-soft: #5a7a99;
+    --text-heading: #1b3a5c;
+
+    --radius: 10px;
+    --transition: 0.3s ease;
+}
+
+/* =============================
+   Шапка
+   ============================= */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(135deg, #dce7f2 0%, #cfdff0 100%);
+    color: var(--text-heading);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 4px double var(--accent);
+}
+
+.header h1 {
+    font-size: 2em;
+    letter-spacing: 1px;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.header .subtitle {
+    margin-top: 8px;
+    font-style: italic;
+    color: var(--text-soft);
+}
+
+/* =============================
+   Горизонтальное меню навигации
+   ============================= */
+.navigation {
+    flex: 0 0 200px;
+    background-color: var(--accent);
+    color: white;
+    padding: 20px;
+    border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.navigation h2 {
+    margin-bottom: 16px;
+    color: var(--accent-soft);
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navigation ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.navigation li {
+    text-align: left;
+}
+
+.navigation a {
+    display: block;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    transition: background-color var(--transition), padding-left var(--transition);
+    font-size: 0.98em;
+}
+
+.navigation a:hover {
+    background-color: var(--accent-2);
+    padding-left: 20px;
+}
+
+/* =============================
+   Карточки
+   ============================= */
+.content {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 24px;
+    background-color: var(--bg-white);
+    align-items: stretch;
+}
+
+.card {
+    flex: 1 1 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--bg-card);
+    padding: 22px;
+    border-radius: var(--radius);
+    border: 2px dashed var(--accent-3);
+    transition: transform var(--transition), box-shadow var(--transition),
+                border-color var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(44, 95, 138, 0.15);
+    border-color: var(--accent);
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    color: var(--accent);
+    font-size: 1.15em;
+    border-bottom: 1px solid var(--accent-soft);
+    padding-bottom: 8px;
+}
+
+.card p {
+    color: var(--text-main);
+    margin-bottom: 14px;
+    font-size: 0.96em;
+}
+
+.tag {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.82em;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-family: 'Consolas', monospace;
+}
+
+/* =============================
+   Основной макет страницы
+   ============================= */
+.main {
+    display: flex;
+    min-height: 400px;
+    gap: 0;
+    margin: 20px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(44, 95, 138, 0.12);
+}
+
+/* =============================
+   Боковая панель
+   ============================= */
+.sidebar {
+    flex: 0 0 220px;
+    background-color: var(--accent-soft);
+    padding: 22px;
+    border-left: 3px solid var(--accent-3);
+}
+
+.sidebar h3 {
+    color: var(--accent);
+    margin-bottom: 14px;
+    font-size: 1.1em;
+    border-bottom: 2px solid var(--accent-3);
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar li {
+    background-color: var(--bg-white);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.94em;
+    color: var(--text-main);
+    border-left: 3px solid var(--accent-2);
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+.sidebar li:hover {
+    background-color: #f0f6fc;
+    transform: translateX(4px);
+}
+
+/* =============================
+   Футер
+   ============================= */
+.footer {
+    background-color: var(--accent);
+    color: white;
+    padding: 30px 20px;
+    margin-top: 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    text-align: center;
+    padding: 18px;
+    background-color: var(--accent-2);
+    border-radius: 8px;
+    transition: background-color var(--transition);
+}
+
+.footer-section:hover {
+    background-color: var(--accent-3);
+}
+
+.footer-section h4 {
+    margin-bottom: 8px;
+    color: white;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    color: #eaf2fa;
+    font-size: 0.92em;
+}
+
+/* =============================
+   Порядок карточек
+   ============================= */
+.card:nth-child(1) {
+    order: 2;
+}
+
+.card:nth-child(2) {
+    order: 1;
+}
+
+.card:nth-child(3) {
+    order: 3;
+}
+
+.card:first-child {
+    flex: 2 1 260px;
+}
+
+.card:last-child {
+    flex: 0.5 1 180px;
+}
+
+/* =============================
+   Адаптивность
+   ============================= */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .navigation {
+        flex: 0 0 auto;
+        border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .navigation ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .navigation a {
+        padding: 8px 12px;
+    }
+
+    .navigation a:hover {
+        padding-left: 12px;
+    }
+
+    .sidebar {
+        flex: 0 0 auto;
+        border-left: none;
+        border-top: 3px solid var(--accent-3);
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .card {
+        flex: 1 1 auto;
+    }
+
+    .card:first-child,
+    .card:last-child {
+        flex: 1 1 auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footer-section {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 26px 16px;
+    }
+
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    .main {
+        margin: 10px;
+    }
+
+    .content {
+        padding: 16px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .navigation,
+    .sidebar {
+        padding: 16px;
+    }
+
+    .footer {
+        padding: 20px 12px;
+    }
+}

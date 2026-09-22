@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Flexbox в действии</h1>
+        <p class="subtitle">Гибкие макеты на чистом CSS</p>
+    </header>
+
+    <main class="main">
+        <nav class="navigation">
+            <h2>Навигация</h2>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Услуги</a></li>
+                <li><a href="#">Портфолио</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <section class="content">
+            <article class="card">
+                <h3>Гибкость</h3>
+                <p>Flexbox позволяет элементам растягиваться и сжиматься в зависимости от доступного пространства.</p>
+                <span class="tag">flex: 1</span>
+            </article>
+
+            <article class="card">
+                <h3>Выравнивание</h3>
+                <p>justify-content и align-items управляют положением элементов по основной и поперечной оси.</p>
+                <span class="tag">justify-content</span>
+            </article>
+
+            <article class="card">
+                <h3>Адаптивность</h3>
+                <p>flex-wrap и медиа-запросы делают макет удобным на любом экране.</p>
+                <span class="tag">flex-wrap</span>
+            </article>
+        </section>
+
+        <aside class="sidebar">
+            <h3>Полезное</h3>
+            <ul>
+                <li>flex-grow</li>
+                <li>flex-shrink</li>
+                <li>flex-basis</li>
+                <li>order</li>
+                <li>gap</li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>О проекте</h4>
+                <p>Учебный макет для практики Flexbox</p>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>info@example.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>© 2026</h4>
+                <p>Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
